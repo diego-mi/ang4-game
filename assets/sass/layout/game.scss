@@ -1,0 +1,92 @@
+.game {
+  padding: 20px 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.player {
+  text-align: center;
+  padding: 10px 30px;
+
+  .title {
+    margin: 15px 0;
+    color: #fff;
+    font-weight: 300;
+  }
+
+  $life-bar-height: 35px;
+  $life-bar-border-height: 2px;
+  $life-bar-height-full: $life-bar-height + ($life-bar-border-height * 2);
+
+  .life-bar {
+    width: 300px;
+    max-width: 100%;
+    height: $life-bar-height + ($life-bar-border-height * 2);
+    border: $life-bar-border-height solid #ccc;
+    position: relative;
+    border-radius: 4px;
+    margin: 10px auto;
+    font-weight: 600;
+    color: #222;
+
+    .life {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: $life-bar-height-full;
+      line-height: $life-bar-height;
+    }
+
+    .life-bar-progress {
+      height: $life-bar-height;
+      transition: width 0.5s;
+    }
+
+    &.progress-100 .life-bar-progress {
+      width: 100%;
+      background-color: #CDDC39;
+    }
+    &.progress-80 .life-bar-progress {
+      width: 80%;
+      background-color: #FFEB3B;
+    }
+    &.progress-60 .life-bar-progress {
+      width: 60%;
+      background-color: #FF9800;
+    }
+    &.progress-40 .life-bar-progress {
+      width: 40%;
+      background-color: #FF5722;
+    }
+    &.progress-20 .life-bar-progress {
+      width: 20%;
+      background-color: #F44336;
+    }
+    &.progress-0 .life-bar-progress {
+      width: 0;
+    }
+  }
+
+  &.player1 {
+    .player-animation {
+      padding-top: 10px;
+    }
+  }
+
+  &.player-2 {
+    .player-animation {
+      transform: scaleX(-1);
+    }
+  }
+
+  .player-animation {
+    height: 300px;
+    img {
+      max-height: 300px;
+    }
+  }
+}

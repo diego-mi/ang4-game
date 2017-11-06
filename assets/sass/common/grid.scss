@@ -1,0 +1,50 @@
+$sm-min: 768px !default;
+$md-min: 992px !default;
+$lg-min: 1200px !default;
+
+$xs-max: ($sm-min - 1) !default;
+$sm-max: ($md-min - 1) !default;
+$md-max: ($lg-min - 1) !default;
+
+$breakpoint-small-and-larger: "only screen and (min-width: " + $sm-min + ")";
+$breakpoint-small: "only screen and (min-width: " + $sm-min + ") and (max-width: " + $sm-max + ")";
+$breakpoint-medium-and-larger: "only screen and (min-width: " + $md-min + ")";
+$breakpoint-medium: "only screen and (min-width: " + $md-min + ") and (max-width: " + $md-max + ")";
+$breakpoint-large: "only screen and (min-width: " + $lg-min + ")";
+
+// CONTAINER
+.container {
+  width: 540px;
+  max-width: 100%;
+  display: flex;
+  flex-flow: column;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media #{$breakpoint-small} {
+    width: 720px;
+  }
+
+  @media #{$breakpoint-medium} {
+    width: 960px;
+  }
+
+  @media #{$breakpoint-large} {
+    width: 1140px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .col {
+      width: 100%;
+
+      @media #{$breakpoint-small-and-larger} {
+        flex: 1;
+        max-width: 100%;
+      }
+    }
+  }
+}
